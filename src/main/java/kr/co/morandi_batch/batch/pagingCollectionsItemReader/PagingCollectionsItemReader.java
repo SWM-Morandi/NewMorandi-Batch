@@ -2,7 +2,6 @@ package kr.co.morandi_batch.batch.pagingCollectionsItemReader;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.database.AbstractPagingItemReader;
