@@ -1,7 +1,6 @@
 package kr.co.morandi_batch.batch.pagingCollectionsItemReader;
 
 import jakarta.persistence.EntityManagerFactory;
-import kr.co.morandi_batch.batch.pagingCollectionsItemReader.PagingCollectionsItemReader;
 import org.springframework.batch.item.database.orm.JpaQueryProvider;
 import org.springframework.util.Assert;
 

@@ -25,6 +25,4 @@ class ProblemRepositoryTest {
         // then
         assertThat(lastBaekjoonProblemId).isNotNull();
     }
-
-
 }

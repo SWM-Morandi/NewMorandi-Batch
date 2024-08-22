@@ -1,6 +1,6 @@
 package kr.co.morandi_batch.batch.reader;
 
-import kr.co.morandi_batch.batch.reader.dto.ProblemsResponse;
+import kr.co.morandi_batch.updateBaekjoonProblem.reader.dto.ProblemsResponse;
 import kr.co.morandi_batch.domain.problem.ProblemRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class NewProblemReaderTest {
