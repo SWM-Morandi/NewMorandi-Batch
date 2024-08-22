@@ -11,6 +11,7 @@ import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -20,10 +21,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class NewProblemJobConfig {
 
     private final NewProblemPagingReader newProblemPagingReader;
+
     private final NewProblemProcessor newProblemProcessor;
+
     private final JdbcBatchItemWriter<Problem> newProblemWriter;
-
-
 
     @Bean
     Job newBaekjoonProblemJob(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
