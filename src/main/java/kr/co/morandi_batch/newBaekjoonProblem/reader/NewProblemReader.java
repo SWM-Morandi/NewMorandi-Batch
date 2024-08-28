@@ -5,6 +5,8 @@ import kr.co.morandi_batch.updateBaekjoonProblem.reader.dto.ProblemsResponse;
 import kr.co.morandi_batch.domain.problem.ProblemRepository;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -24,13 +26,17 @@ public class NewProblemReader implements ItemReader<ProblemsResponse> {
 
     @Autowired
     public NewProblemReader(WebClient.Builder webClientBuilder, ProblemRepository problemRepository) {
+        Pageable pageable = PageRequest.of(0, 1);
         this.webClient = WebClient.builder()
                 .baseUrl("https://solved.ac/api/v3")
                 .build();
         this.problemRepository = problemRepository;
-        this.lastBaekjoonProblemId = this.problemRepository.findLastBaekjoonProblemId();
-        if (lastBaekjoonProblemId == null) {
+        List<Long> lastProblemIds = this.problemRepository.findLastBaekjoonProblemId(pageable);
+        if (lastProblemIds.isEmpty()) {
             lastBaekjoonProblemId = 0L;
+        }
+        else {
+            lastBaekjoonProblemId = lastProblemIds.get(0);
         }
     }
 

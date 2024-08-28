@@ -1,4 +1,4 @@
-package kr.co.morandi_batch.h2;
+package kr.co.morandi_batch.config.h2;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

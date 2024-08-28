@@ -6,8 +6,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @SpringBootTest
 class NewProblemReaderTest {
@@ -20,10 +24,10 @@ class NewProblemReaderTest {
     void test() {
         // given
         //문제 번호를 가져온다
-        Long findProblemId = problemRepository.findLastBaekjoonProblemId();
+        Pageable pageable = PageRequest.of(0, 1);
+        List<Long> lastProblemIds = this.problemRepository.findLastBaekjoonProblemId(pageable);
 
-        //문제 번호가 null이면 0L로 바꾸고, 아니면 ++한다.
-        final long lastBaekjoonProblemId = findProblemId == null ? 0L : findProblemId + 1;
+        final Long lastBaekjoonProblemId = (lastProblemIds.isEmpty()) ? 0L : lastProblemIds.get(0);
 
         //webflux client를 만든다.
         WebClient webClient = WebClient.builder()

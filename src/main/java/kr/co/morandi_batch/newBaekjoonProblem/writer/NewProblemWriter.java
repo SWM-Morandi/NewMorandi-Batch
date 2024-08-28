@@ -17,7 +17,6 @@ public class NewProblemWriter {
 
     @Bean
     public JdbcBatchItemWriter<Problem> problemWriter(DataSource dataSource) {
-
         return new JdbcBatchItemWriterBuilder<Problem>()
                 .itemSqlParameterSourceProvider(item -> {
                     MapSqlParameterSource paramSource = new MapSqlParameterSource();
@@ -25,15 +24,14 @@ public class NewProblemWriter {
                     paramSource.addValue("problemTier", item.getProblemTier().name());
                     paramSource.addValue("problemStatus", item.getProblemStatus().name());
                     paramSource.addValue("solvedCount", item.getSolvedCount());
+                    log.info("Batch Items BOJProblemID : " + item.getBaekjoonProblemId());
                     return paramSource;
                 })
-                .sql("INSERT INTO problem (baekjoon_problem_id, problem_tier, problem_status, solved_count) VALUES (:baekjoonProblemId, :problemTier, :problemStatus, :solvedCount)")
+                .sql("INSERT INTO problem (baekjoon_problem_id, problem_tier, problem_status, solved_count)" +
+                        " VALUES (:baekjoonProblemId, :problemTier, :problemStatus, :solvedCount)")
                 .dataSource(dataSource)
                 .build();
     }
-
-
-
 }
 
 
