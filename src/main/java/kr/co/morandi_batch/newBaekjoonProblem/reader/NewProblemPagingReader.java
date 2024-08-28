@@ -52,6 +52,7 @@ public class NewProblemPagingReader implements ItemReader<ProblemDTO> {
                 .bodyToMono(ProblemsResponse.class);
 
         ProblemsResponse problemsResponse = problemsResponseMono.block();
+
         if (problemsResponse != null && problemsResponse.getItems() != null) {
             problemsQueue.addAll(problemsResponse.getItems());
         }
@@ -61,7 +62,7 @@ public class NewProblemPagingReader implements ItemReader<ProblemDTO> {
         Pageable pageable = PageRequest.of(0, 1);
         List<Long> lastProblemIds = this.problemRepository.findLastBaekjoonProblemId(pageable);
         if (lastProblemIds.isEmpty()) {
-            lastBaekjoonProblemId = 0L;
+            lastBaekjoonProblemId = 999L;
         }
         else {
             lastBaekjoonProblemId = lastProblemIds.get(0);
