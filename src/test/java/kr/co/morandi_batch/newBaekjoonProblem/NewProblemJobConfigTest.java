@@ -1,21 +1,14 @@
 package kr.co.morandi_batch.newBaekjoonProblem;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import kr.co.morandi_batch.config.WebClientTestConfig;
-import kr.co.morandi_batch.domain.problem.Problem;
 import kr.co.morandi_batch.domain.problem.ProblemRepository;
-import kr.co.morandi_batch.domain.problem.ProblemTier;
 import kr.co.morandi_batch.newBaekjoonProblem.processor.NewProblemProcessor;
 import kr.co.morandi_batch.newBaekjoonProblem.reader.NewProblemPagingReader;
 import kr.co.morandi_batch.updateBaekjoonProblem.reader.dto.ProblemDTO;
-import kr.co.morandi_batch.updateBaekjoonProblem.reader.dto.ProblemsResponse;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.springframework.batch.core.BatchStatus;
@@ -25,23 +18,11 @@ import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.batch.test.context.SpringBatchTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
-import org.springframework.context.annotation.Import;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.util.ReflectionTestUtils;
-import org.springframework.web.reactive.function.client.ClientRequest;
-import org.springframework.web.reactive.function.client.ClientResponse;
-import org.springframework.web.reactive.function.client.ExchangeFunction;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -50,7 +31,6 @@ import static org.mockito.Mockito.*;
 @ActiveProfiles("test")
 @Slf4j
 @ExtendWith(SpringExtension.class)
-@Import(WebClientTestConfig.class)
 @SpringBatchTest
 @SpringBootTest(properties = { "spring.batch.job.enabled=false" })
 class NewProblemJobConfigTest {
