@@ -26,8 +26,8 @@ public class NewProblemPagingReader implements ItemReader<ProblemDTO> {
     private int nextPage = 1;
     private final ArrayDeque<ProblemDTO> problemsQueue = new ArrayDeque<>();
 
-    public NewProblemPagingReader(WebClient.Builder webClientBuilder, ProblemRepository problemRepository) {
-        this.webClient = webClientBuilder.baseUrl("https://solved.ac/api/v3").build();
+    public NewProblemPagingReader(WebClient webClient, ProblemRepository problemRepository) {
+        this.webClient = webClient.mutate().baseUrl("https://solved.ac/api/v3").build();
         this.problemRepository = problemRepository;
     }
 
