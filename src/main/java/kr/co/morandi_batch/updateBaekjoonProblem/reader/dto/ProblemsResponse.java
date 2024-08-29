@@ -1,9 +1,6 @@
 package kr.co.morandi_batch.updateBaekjoonProblem.reader.dto;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,4 +10,14 @@ import java.util.List;
 public class ProblemsResponse {
     private int count;
     private List<ProblemDTO> items;
+
+    @Builder
+    private ProblemsResponse(int count, List<ProblemDTO> items) {
+        this.count = count;
+        this.items = items;
+    }
+
+    public static ProblemsResponse create(int count, List<ProblemDTO> items) {
+        return new ProblemsResponse(count, items);
+    }
 }

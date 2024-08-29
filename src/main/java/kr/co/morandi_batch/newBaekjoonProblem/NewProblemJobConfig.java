@@ -37,7 +37,6 @@ public class NewProblemJobConfig {
     Step newBaekjoonProblemStep(JobRepository jobRepository, PlatformTransactionManager transactionManger) {
         return new StepBuilder("newBaekjoonProblemStep", jobRepository)
                 .<ProblemDTO, Problem>chunk(50, transactionManger)
-//                .allowStartIfComplete(true)
                 .reader(newProblemPagingReader)
                 .processor(newProblemProcessor)
                 .writer(newProblemWriter)

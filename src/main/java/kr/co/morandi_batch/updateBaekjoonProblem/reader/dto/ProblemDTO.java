@@ -24,6 +24,10 @@ public class ProblemDTO {
         this.acceptedUserCount = acceptedUserCount;
     }
 
+    public static ProblemDTO create(Long problemId, String titleKo, Integer level, Integer acceptedUserCount) {
+        return new ProblemDTO(problemId, titleKo, level, acceptedUserCount);
+    }
+
     public Problem toEntity() {
         return Problem.builder()
                 .baekjoonProblemId(problemId)

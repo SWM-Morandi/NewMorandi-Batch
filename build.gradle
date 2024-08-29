@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     //configuration processor
     implementation 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.projectlombok:lombok:1.18.26'
 
     // lombok
     compileOnly 'org.projectlombok:lombok'
