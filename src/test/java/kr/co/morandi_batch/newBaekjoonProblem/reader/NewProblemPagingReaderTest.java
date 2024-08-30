@@ -56,7 +56,7 @@ class NewProblemPagingReaderTest {
         // given
         List<ProblemDTO> problemDTOList = new ArrayList<>();
         for (long i = 1; i <= 50; i++)
-            problemDTOList.add(ProblemDTO.create(i, "테스트 문제 " + i, 1, 2000));
+            problemDTOList.add(ProblemDTO.create(i, "테스트 문제 " + i, 1, 2000L));
 
         when(exchangeFunction.exchange(any(ClientRequest.class)))
                 .thenAnswer(invocation -> {

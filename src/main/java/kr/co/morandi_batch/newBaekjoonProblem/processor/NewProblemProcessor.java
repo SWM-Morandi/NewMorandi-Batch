@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class NewProblemProcessor implements ItemProcessor<ProblemDTO, Problem> {
 
     @Override
-    public Problem process(ProblemDTO problemDTO) throws Exception {
+    public Problem process(ProblemDTO problemDTO) {
         log.debug("Processing problem with ID: {}", problemDTO.getProblemId());
         return problemDTO.toEntity();
     }

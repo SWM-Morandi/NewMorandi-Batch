@@ -17,7 +17,7 @@ class ProblemDTOTest {
                 .problemId(1L)
                 .titleKo("titleKo")
                 .level(1)
-                .acceptedUserCount(100)
+                .acceptedUserCount(100L)
                 .build();
 
         // when

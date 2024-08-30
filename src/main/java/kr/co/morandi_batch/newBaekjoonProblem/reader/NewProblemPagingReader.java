@@ -7,7 +7,6 @@ import kr.co.morandi_batch.updateBaekjoonProblem.reader.dto.ProblemsResponse;
 import kr.co.morandi_batch.domain.problem.ProblemRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemReader;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;

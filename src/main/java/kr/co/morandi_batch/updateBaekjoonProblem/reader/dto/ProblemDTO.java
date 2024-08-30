@@ -14,17 +14,17 @@ public class ProblemDTO {
     private Long problemId;
     private String titleKo;
     private Integer level;
-    private Integer acceptedUserCount;
+    private Long acceptedUserCount;
 
     @Builder
-    private ProblemDTO(Long problemId, String titleKo, Integer level, Integer acceptedUserCount) {
+    private ProblemDTO(Long problemId, String titleKo, Integer level, Long acceptedUserCount) {
         this.problemId = problemId;
         this.titleKo = titleKo;
         this.level = level;
         this.acceptedUserCount = acceptedUserCount;
     }
 
-    public static ProblemDTO create(Long problemId, String titleKo, Integer level, Integer acceptedUserCount) {
+    public static ProblemDTO create(Long problemId, String titleKo, Integer level, Long acceptedUserCount) {
         return new ProblemDTO(problemId, titleKo, level, acceptedUserCount);
     }
 

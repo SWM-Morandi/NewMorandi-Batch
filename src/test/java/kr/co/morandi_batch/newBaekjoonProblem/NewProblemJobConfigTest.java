@@ -61,7 +61,7 @@ class NewProblemJobConfigTest {
         // given
         List<ProblemDTO> problemDTOList = new ArrayList<>();
         for (long i = 1; i <= 500; i++)
-            problemDTOList.add(ProblemDTO.create(i, "Test Problem " + i, 1, 2000));
+            problemDTOList.add(ProblemDTO.create(i, "Test Problem " + i, 1, 2000L));
 
         when(newProblemPagingReader.read()).thenAnswer(invocation -> {
             if (problemDTOList.isEmpty()) {
@@ -99,7 +99,7 @@ class NewProblemJobConfigTest {
         // given
         List<ProblemDTO> problemDTOList = new ArrayList<>();
         for (long i = 1; i <= 500; i++)
-            problemDTOList.add(ProblemDTO.create(i, "Test Problem " + i, 1, 2000));
+            problemDTOList.add(ProblemDTO.create(i, "Test Problem " + i, 1, 2000L));
 
         when(newProblemPagingReader.read()).thenAnswer(invocation -> {
             if (problemDTOList.isEmpty()) {
